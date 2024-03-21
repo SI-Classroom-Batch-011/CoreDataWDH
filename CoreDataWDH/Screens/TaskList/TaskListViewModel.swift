@@ -1,6 +1,6 @@
 //
 //  TaskListViewModel.swift
-//  TasksCoreData
+//  CoreDataWDH
 //
 //  Created by Joshua Rück on 20.03.24.
 //
@@ -47,6 +47,15 @@ class TaskListViewModel: ObservableObject {
     func toggleTask(task: Task) {
         do {
             try repository.toggleTask(task: task)
+            fetchTasks()
+        } catch {
+            handleDatabaseError()
+        }
+    }
+    
+    func addPersonToTask(task: Task) {
+        do {
+            try repository.addPersonToTask(task: task)
             fetchTasks()
         } catch {
             handleDatabaseError()

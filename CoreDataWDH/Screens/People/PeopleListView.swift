@@ -1,6 +1,6 @@
 //
 //  PeopleListView.swift
-//  TasksCoreData
+//  CoreDataWDH
 //
 //  Created by Joshua Rück on 21.03.24.
 //

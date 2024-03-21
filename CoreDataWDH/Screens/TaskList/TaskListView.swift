@@ -1,6 +1,6 @@
 //
 //  TaskListView.swift
-//  TasksCoreData
+//  CoreDataWDH
 //
 //  Created by Joshua Rück on 20.03.24.
 //
@@ -24,11 +24,16 @@ struct TaskListView: View {
                         Text(task.title ?? "")
                         Spacer()
                         Group {
-                            #warning("Bild von person anzeigen")
-                            Image(systemName: "person.badge.plus")
+                            if let picture = task.person?.picture {
+                                Image(picture)
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                            } else {
+                                Image(systemName: "person.badge.plus")
+                            }
                         }
                         .onTapGesture {
-                            #warning("ToDo: Person zu Task hinzufügen")
+                            viewModel.addPersonToTask(task: task)
                         }
                     }
                     .swipeActions {

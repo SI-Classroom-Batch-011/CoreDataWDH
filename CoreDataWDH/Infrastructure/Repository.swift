@@ -62,4 +62,17 @@ class Repository {
         try store.save()
     }
     
+    func addPersonToTask(task: Task) throws {
+        
+        let newPerson = Person(context: store.context)
+        newPerson.id = UUID()
+        newPerson.name = SampleData().randomName
+        newPerson.picture = SampleData().randomPic
+        
+        newPerson.addToTasks(task)
+        
+        try store.save()
+        
+    }
+    
 }
